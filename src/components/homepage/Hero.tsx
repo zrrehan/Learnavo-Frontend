@@ -57,14 +57,13 @@ export default function Hero() {
             transitionDelay: "100ms",
           }}
         >
-          Hello
+          FIND
         </h1>
 
         <h1
-          className="font-black uppercase leading-none mb-10 transition-all duration-700"
+          className="font-black uppercase leading-none mb-10 transition-all duration-700 text-[70px]"
           style={{
             fontFamily: "'Georgia', serif",
-            fontSize: "clamp(3.5rem, 10vw, 7rem)",
             letterSpacing: "-0.03em",
             WebkitTextStroke: "2px #0a0a0a",
             color: "transparent",
@@ -73,7 +72,7 @@ export default function Hero() {
             transitionDelay: "180ms",
           }}
         >
-          There.
+          YOUR TUTOR.
         </h1>
 
         {/* Divider line */}

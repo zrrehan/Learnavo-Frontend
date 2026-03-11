@@ -11,7 +11,7 @@ function Navbar() {
         </Link>
       </li>
       <li>
-        <Link href="/tutors" className="relative text-sm tracking-widest uppercase font-medium text-black/50 hover:text-black hover:bg-transparent transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">
+        <Link href="/browse-tutor" className="relative text-sm tracking-widest uppercase font-medium text-black/50 hover:text-black hover:bg-transparent transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">
           Find Tutors
         </Link>
       </li>

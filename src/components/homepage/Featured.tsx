@@ -35,7 +35,7 @@ export default function Featured() {
         );
         if (!res.ok) throw new Error("Failed to fetch tutors");
         const data = await res.json();
-        setTutors(data);
+        setTutors(data.result);
       } catch (err) {
         setError("Could not load featured tutors.");
       } finally {
