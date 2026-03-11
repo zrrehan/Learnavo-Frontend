@@ -33,7 +33,7 @@ export default function BrowseTutorPage() {
       if (filters.higherPrice) body.higherPrice = filters.higherPrice;
       if (filters.category) body.category = filters.category;
 
-      const res = await fetch("http://localhost:8080/public-features/tutor-browse", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/public-features/tutor-browse`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

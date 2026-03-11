@@ -31,7 +31,7 @@ export default function Featured() {
     const fetchFeaturedTutors = async () => {
       try {
         const res = await fetch(
-          `http://localhost:8080/public-features/tutor-profile-views?featured=true`
+          `${process.env.NEXT_PUBLIC_API_URL}/public-features/tutor-profile-views?featured=true`
         );
         if (!res.ok) throw new Error("Failed to fetch tutors");
         const data = await res.json();
