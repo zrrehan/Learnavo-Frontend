@@ -40,16 +40,7 @@ export default function Navbar() {
           Find Tutors
         </Link>
       </li>
-      <li>
-        <Link href="/admin/users" className="relative text-sm tracking-widest uppercase font-medium text-black/50 hover:text-black hover:bg-transparent transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">
-          Admin Dashboard
-        </Link>
-      </li>
-      <li>
-        <Link href="/pricing" className="relative text-sm tracking-widest uppercase font-medium text-black/50 hover:text-black hover:bg-transparent transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">
-          Pricing
-        </Link>
-      </li>
+      
     </>
   );
 
@@ -89,7 +80,7 @@ export default function Navbar() {
         ) : !user ? (
           // Not logged in
           <Link
-            href="/auth"
+            href="/authentication"
             className="btn btn-sm rounded-none border border-black/20 bg-transparent text-black text-xs tracking-[0.15em] uppercase font-semibold hover:bg-black hover:text-white hover:border-black transition-all duration-300 font-mono"
           >
             Login
@@ -133,8 +124,8 @@ export default function Navbar() {
                       (user as any).roles === "admin"
                         ? "/admin-all-users"
                         : (user as any).roles === "tutor"
-                        ? "/tutor/dashboard"
-                        : "/student/dashboard"
+                        ? "/tutor-browse-all-session"
+                        : "/my-bookings"
                     }
                     onClick={() => setOpen(false)}
                     className="px-4 py-2.5 text-xs font-mono tracking-widest uppercase text-black/60 hover:text-black hover:bg-black/5 transition-colors duration-200"

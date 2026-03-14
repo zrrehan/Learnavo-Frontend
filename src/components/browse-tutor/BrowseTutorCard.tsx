@@ -193,15 +193,6 @@ export default function BrowseTutorCard({ tutor }: { tutor: Tutor }) {
           )}
         </div>
       )}
-
-      {/* CTA */}
-      <Link
-        href={`/browse-tutor/${tutor.id}`}
-        className="w-full mt-auto btn btn-sm rounded-none border border-black bg-white text-black text-xs tracking-[0.15em] uppercase font-semibold hover:bg-black hover:text-white transition-all duration-300 font-mono text-center py-2"
-      >
-        View Profile →
-      </Link>
-
     </div>
   );
 }
