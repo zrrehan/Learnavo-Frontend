@@ -70,6 +70,8 @@ function StarRating({ rating }: { rating: number }) {
 export default function BrowseTutorCard({ tutor }: { tutor: Tutor }) {
   const [showReviews, setShowReviews] = useState(false);
 
+  const reviews = tutor.reviews ?? [];
+  const subjects = tutor.subjects ?? [];
   const rating = tutor.ratingCount > 0 ? tutor.ratingSum / tutor.ratingCount : 0;
   const ratingDisplay = tutor.ratingCount > 0 ? rating.toFixed(1) : "N/A";
 
@@ -105,7 +107,7 @@ export default function BrowseTutorCard({ tutor }: { tutor: Tutor }) {
 
       {/* Subjects */}
       <div className="flex flex-wrap gap-2">
-        {tutor.subjects.map((subject) => (
+        {subjects.map((subject) => (
           <span
             key={subject}
             className="text-[11px] tracking-[0.15em] uppercase font-mono border border-black/30 px-2 py-1 text-black/80"
@@ -143,14 +145,14 @@ export default function BrowseTutorCard({ tutor }: { tutor: Tutor }) {
       </div>
 
       {/* Reviews Toggle */}
-      {tutor.reviews.length > 0 && (
+      {reviews.length > 0 && (
         <div className="border-t border-black/10 pt-4">
           <button
             onClick={() => setShowReviews(!showReviews)}
             className="flex items-center justify-between w-full text-left group/rev"
           >
             <span className="text-[11px] font-mono uppercase tracking-widest text-black/60 font-semibold group-hover/rev:text-black transition-colors duration-200">
-              {tutor.reviews.length} Review{tutor.reviews.length > 1 ? "s" : ""}
+              {reviews.length} Review{reviews.length > 1 ? "s" : ""}
             </span>
             <span
               className="text-black/40 font-mono text-xs transition-transform duration-300 group-hover/rev:text-black inline-block"
@@ -160,15 +162,12 @@ export default function BrowseTutorCard({ tutor }: { tutor: Tutor }) {
             </span>
           </button>
 
-          {/* Reviews List */}
           {showReviews && (
             <div className="mt-3 flex flex-col gap-4 max-h-52 overflow-y-auto pr-1">
-              {tutor.reviews.map((review) => (
+              {reviews.map((review) => (
                 <div key={review.id} className="flex gap-3">
-
-                  {/* Student Avatar */}
                   <div className="w-8 h-8 bg-black/10 text-black flex items-center justify-center text-xs font-black shrink-0 overflow-hidden">
-                    {review.studentId.user.image ? (
+                    {review.studentId?.user?.image ? (
                       <img
                         src={review.studentId.user.image}
                         alt={review.studentId.user.name}
@@ -176,21 +175,18 @@ export default function BrowseTutorCard({ tutor }: { tutor: Tutor }) {
                       />
                     ) : (
                       <span className="font-serif">
-                        {review.studentId.user.name.charAt(0).toUpperCase()}
+                        {review.studentId?.user?.name?.charAt(0).toUpperCase() ?? "?"}
                       </span>
                     )}
                   </div>
-
-                  {/* Review Content */}
                   <div className="flex flex-col gap-1">
                     <p className="text-xs font-semibold text-black/80 font-mono tracking-wide">
-                      {review.studentId.user.name}
+                      {review.studentId?.user?.name ?? "Anonymous"}
                     </p>
                     <p className="text-xs text-black/60 leading-relaxed">
                       {review.content}
                     </p>
                   </div>
-
                 </div>
               ))}
             </div>

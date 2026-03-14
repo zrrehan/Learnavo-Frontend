@@ -35,7 +35,7 @@ export default function BrowseFilters({ filters, onChange, onReset }: BrowseFilt
           </p>
           <button
             onClick={onReset}
-            className="text-[10px] tracking-[0.2em] uppercase font-mono text-black/30 hover:text-black transition-colors duration-200 border border-black/10 hover:border-black px-3 py-1"
+            className="text-[15px] tracking-[0.2em] uppercase font-mono  hover:text-black transition-colors duration-200 border border-black/10 hover:border-black px-3 py-1"
           >
             Reset
           </button>

@@ -26,6 +26,7 @@ export default function LoginForm({ onSwitch }: { onSwitch: () => void }) {
     try {
       const res = await fetch(`${API_URL}/api/auth/sign-in/email`, {
         method: "POST",
+        credentials: "include",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: form.email, password: form.password }),
       });
